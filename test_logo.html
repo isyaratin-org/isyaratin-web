@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { background: #156669; display: flex; gap: 20px; padding: 40px; justify-content: center; align-items: center; }
+    .box { background: white; padding: 20px; border-radius: 20px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <!-- SVG Handshake matching the user's uploaded logo -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+      <!-- White Squircle -->
+      <rect x="12" y="12" width="176" height="176" rx="48" fill="white" />
+      
+      <g stroke="#156669" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <!-- Top Horizontal connecting line -->
+        <path d="M68 62 H102 C114 58 126 62 134 60 V102" />
+        
+        <!-- Left Wrist -->
+        <path d="M68 62 L64 102 L93 126" />
+        
+        <!-- Thumb of Right Hand clasping inwards -->
+        <path d="M102 62 C92 70 82 80 82 90 C82 96 88 100 95 96 C104 90 115 88 130 102" />
+        
+        <!-- Finger Knuckles of Left Hand -->
+        <path d="M93 126 C100 132 108 128 111 122 C113 118 112 112 106 108" />
+        <path d="M111 122 C118 126 126 122 128 114 C130 108 126 102 118 98" />
+      </g>
+    </svg>
+  </div>
+</body>
+</html>
