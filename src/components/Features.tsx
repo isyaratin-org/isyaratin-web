@@ -21,8 +21,13 @@ export default function Features() {
   };
 
   return (
-    <section id="fitur" className="py-20 bg-white border-t border-teal-100/60 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="fitur" aria-label="Fitur Unggulan Isyaratin" className="py-20 bg-white border-t border-teal-100/60 relative overflow-hidden">
+      {/* Subtle organic ambient gradients */}
+      <div className="absolute top-1/4 -right-28 w-96 h-96 bg-teal-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 -left-28 w-96 h-96 bg-[#E6F3F3]/70 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-teal opacity-10 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6F3F3] border border-teal-200 text-xs font-bold text-[#156669]">

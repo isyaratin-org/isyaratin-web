@@ -10,7 +10,18 @@ interface DownloadCtaProps {
 
 export default function DownloadCta({ onOpenUnavailableModal }: DownloadCtaProps) {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#156669] via-[#0F4C4F] to-[#0A3638] text-white relative overflow-hidden">
+    <section
+      id="unduh"
+      aria-label="Unduh Aplikasi Isyaratin"
+      className="py-20 bg-gradient-to-br from-[#156669] via-[#0F4C4F] to-[#0A3638] text-white relative overflow-hidden"
+    >
+      {/* Background Ambient Imagery */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-screen pointer-events-none select-none"
+        style={{ backgroundImage: "url('/images/hero-bg.webp')" }}
+        aria-hidden="true"
+      />
+
       {/* Background Glow */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#1E8E93]/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#9CE7E3]/15 rounded-full blur-3xl pointer-events-none" />

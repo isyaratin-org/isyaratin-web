@@ -33,9 +33,9 @@ export const appConfig = {
   heroTitle:
     "AI-Powered Two-Way Sign Language Communication Assistant for Inclusive Accessibility With 3D Avatar",
   shortDescription:
-    "Aplikasi berbasis AI yang menjembatani komunikasi dua arah antara penyandang tunarungu dan masyarakat melalui penerjemahan bahasa isyarat ke teks/suara serta teks/suara ke avatar bahasa isyarat 3D.",
+    "Aplikasi berbasis AI yang menjembatani komunikasi dua arah antara teman Tuli (penyandang tunarungu) dan masyarakat melalui penerjemahan gerakan bahasa isyarat (BISINDO) ke teks/suara serta ucapan ke avatar 3D interaktif.",
   fullDescription:
-    "Isyaratin hadir sebagai solusi inklusivitas cerdas yang menghubungkan teman Tuli dan masyarakat luas secara setara, real-time, dan mudah diakses langsung melalui perangkat Android.",
+    "Isyaratin hadir sebagai solusi aksesibilitas cerdas berbasis AI yang menghubungkan komunitas Tuli dan masyarakat luas secara setara, real-time, dan mudah diakses langsung melalui perangkat Android.",
 
   // Konfigurasi installer APK
   apkDownloadUrl: process.env.NEXT_PUBLIC_APK_DOWNLOAD_URL || "",

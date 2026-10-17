@@ -14,7 +14,15 @@ export default function Hero({
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-[#156669] via-[#105659] to-[#0A383A] text-white">
       {/* Background Soft Wave & Grid Patterns */}
-      <div className="absolute inset-0 bg-grid-teal opacity-25 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-teal opacity-20 pointer-events-none" />
+
+      {/* Background Atmospheric AI Gesture & Soundwave Imagery */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-screen pointer-events-none select-none"
+        style={{ backgroundImage: "url('/images/hero-bg.webp')" }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A383A] via-transparent to-[#156669]/50 pointer-events-none" />
 
       {/* Gelombang Kurva Organik Sesuai Mockup */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1E8E93]/20 rounded-full blur-3xl -z-10 pointer-events-none" />

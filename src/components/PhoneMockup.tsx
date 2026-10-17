@@ -23,7 +23,11 @@ export default function PhoneMockup() {
   const [activeScreen, setActiveScreen] = useState<"home" | "avatar">("home");
 
   return (
-    <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] select-none">
+    <div
+      role="region"
+      aria-label="Pratinjau antarmuka aplikasi Isyaratin Android"
+      className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] select-none"
+    >
       {/* Efek Cahaya Latar Belakang (Teal & Cyan Glow) */}
       <div className="absolute -inset-4 bg-gradient-to-tr from-[#156669]/30 via-[#1E8E93]/20 to-[#9CE7E3]/25 rounded-[52px] blur-2xl -z-10 animate-pulse-subtle" />
 

@@ -14,6 +14,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://isyaratin.com";
 
 export const viewport: Viewport = {
   themeColor: "#156669",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -36,6 +37,8 @@ export const metadata: Metadata = {
     "avatar 3D isyarat",
     "komunikasi tunarungu",
     "Bisindo AI",
+    "bahasa isyarat indonesia",
+    "teman tuli",
     "download APK Isyaratin",
     "aksesibilitas inklusif",
     "sign language translator Indonesia",
@@ -59,12 +62,22 @@ export const metadata: Metadata = {
     siteName: "ISYARATIN",
     locale: "id_ID",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "ISYARATIN - Asisten Komunikasi Dua Arah Bahasa Isyarat AI & Avatar 3D",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "ISYARATIN - Asisten Komunikasi Dua Arah Bahasa Isyarat AI",
     description:
       "Menjembatani Komunikasi, Mewujudkan Inklusi. Unduh installer APK resmi Isyaratin untuk Android sekarang.",
+    images: ["/opengraph-image"],
   },
   icons: {
     icon: [
@@ -96,6 +109,13 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  other: {
+    "geo.region": "ID",
+    "geo.placename": "Indonesia",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "format-detection": "telephone=no",
   },
 };
 
