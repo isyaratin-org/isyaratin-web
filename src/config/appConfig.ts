@@ -49,7 +49,7 @@ export const appConfig = {
 
   // Informasi kontak placeholder
   contact: {
-    email: "kontak@isyaratin.id",
+    email: "kontak@isyaratin.com",
     supportText: "Kirim masukan atau pertanyaan kepada tim pengembang Isyaratin.",
     repoUrl: "https://github.com/lupienn/isyaratin-web",
     communityNote: "Dikembangkan dengan semangat inklusivitas untuk penyandang tunarungu dan masyarakat Indonesia.",
