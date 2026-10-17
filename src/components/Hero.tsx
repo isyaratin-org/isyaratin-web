@@ -21,7 +21,7 @@ export default function Hero({
       <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-[#0E4648]/60 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       {/* Ilustrasi Origami Pesawat Kertas & Jejak Titik-Titik Sesuai Mockup */}
-      <div className="absolute top-16 right-6 md:top-20 md:right-16 lg:right-28 pointer-events-none select-none z-10 animate-plane">
+      <div className="absolute top-16 right-6 md:top-20 md:right-16 lg:right-28 pointer-events-none select-none z-10 animate-plane hidden sm:block" aria-hidden="true">
         <svg
           className="w-28 h-20 sm:w-36 sm:h-24 md:w-44 md:h-28 text-white drop-shadow-md"
           viewBox="0 0 160 100"
@@ -67,7 +67,7 @@ export default function Hero({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Kolom Teks & CTA (7 Kolom) */}
-          <div className="lg:col-span-7 text-center lg:text-left space-y-6">
+          <div className="lg:col-span-7 text-center lg:text-left space-y-8">
             {/* Tagline / AI Assistant Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-xs text-xs font-semibold text-teal-100">
               <span className="flex h-2 w-2 rounded-full bg-[#9CE7E3] animate-pulse" />
@@ -78,26 +78,26 @@ export default function Hero({
             </div>
 
             {/* Judul Utama Sesuai Mockup */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black tracking-tight text-white leading-[1.2] uppercase">
-              <span className="text-[#9CE7E3] block font-mono text-lg sm:text-xl md:text-2xl font-bold tracking-widest normal-case mb-1">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.25]">
+              <span className="text-[#9CE7E3] block text-xl sm:text-2xl font-bold tracking-[0.2em] mb-3">
                 ISYARATIN
               </span>
-              AI-Powered Two-Way Sign Language Communication Assistant for Inclusive Accessibility With 3D Avatar
+              Asisten Komunikasi Bahasa Isyarat Dua Arah Berbasis AI dengan Avatar 3D
             </h1>
 
-            {/* Deskripsi Singkat Sesuai Mockup */}
-            <p className="text-sm sm:text-base md:text-lg text-teal-50/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            {/* Deskripsi Singkat */}
+            <p className="text-base sm:text-lg md:text-xl text-white max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
               {appConfig.shortDescription}
             </p>
 
             {/* Fitur Inti Cepat */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs text-teal-100 pt-1">
-              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-full border border-white/15">
-                <Smartphone className="w-3.5 h-3.5 text-[#9CE7E3]" />
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm text-white pt-1">
+              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/25">
+                <Smartphone className="w-4 h-4 text-[#9CE7E3]" aria-hidden="true" />
                 <span>Khusus Perangkat Android</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-full border border-white/15">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#9CE7E3]" />
+              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/25">
+                <ShieldCheck className="w-4 h-4 text-[#9CE7E3]" aria-hidden="true" />
                 <span>Installer APK Resmi Bebas Iklan</span>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function Hero({
 
               <a
                 href="#fitur"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-base font-bold text-white bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <span>Pelajari Fitur AI</span>
                 <ArrowRight className="w-4 h-4 text-teal-200" />
@@ -122,7 +122,7 @@ export default function Hero({
             </div>
 
             {/* Catatan Transparan */}
-            <p className="text-xs text-teal-200/80 pt-1">
+            <p className="text-sm text-teal-100 pt-1 max-w-xl mx-auto lg:mx-0">
               * Aplikasi memerlukan izin akses kamera dan mikrofon pada ponsel Android Anda untuk penerjemahan dua arah secara real-time.
             </p>
           </div>

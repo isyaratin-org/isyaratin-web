@@ -24,11 +24,15 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col selection:bg-indigo-100 selection:text-indigo-900">
+      <a href="#konten-utama" className="skip-link">
+        Lewati ke konten utama
+      </a>
+
       {/* Navigasi Utama */}
       <Navbar onOpenUnavailableModal={handleOpenModal} />
 
       {/* Konten Halaman */}
-      <main className="flex-1">
+      <main id="konten-utama" className="flex-1">
         {/* Hero Section */}
         <Hero onOpenUnavailableModal={handleOpenModal} />
 

@@ -57,7 +57,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className={`${plusJakartaSans.variable} font-sans scroll-smooth`}>
-      <body className="min-h-screen flex flex-col bg-[#F3F8F8] text-[#0D2E30] antialiased selection:bg-[#C9ECEB] selection:text-[#0A3638]">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen flex flex-col bg-[#F3F8F8] text-[#0D2E30] antialiased selection:bg-[#C9ECEB] selection:text-[#0A3638]">
         {children}
       </body>
     </html>

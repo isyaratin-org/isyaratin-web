@@ -10,12 +10,53 @@
   body {
     background-color: #f3f8f8;
     color: #0d2e30;
+    font-size: 1.0625rem;
+    line-height: 1.7;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   ::selection {
     background-color: #c9eceb;
     color: #0a3638;
+  }
+
+  /* Fokus keyboard jelas & konsisten */
+  :focus-visible {
+    outline: 3px solid #1e8e93;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  a,
+  button {
+    min-height: 44px;
+  }
+}
+
+/* Skip link untuk pengguna keyboard / pembaca layar */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: #156669;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
