@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Download, Smartphone } from "lucide-react";
+import { Download, Smartphone, Sparkles } from "lucide-react";
 import { appConfig } from "@/config/appConfig";
 
 interface DownloadButtonProps {
@@ -26,31 +26,45 @@ export default function DownloadButton({
 
   // Basis gaya tombol
   const baseStyles =
-    "group inline-flex items-center justify-center font-bold rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.98]";
+    "group relative inline-flex items-center justify-center font-bold rounded-xl transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#2DD4BF] active:scale-[0.97] overflow-hidden";
 
   // Varian ukuran
   const sizeStyles = {
-    sm: "px-3.5 py-2 text-xs gap-1.5",
-    md: "px-5 py-2.5 text-sm gap-2",
-    lg: "px-6 py-3.5 text-base gap-2.5 shadow-lg shadow-black/20",
+    sm: "px-4 py-2 text-xs gap-2",
+    md: "px-5 py-2.5 text-sm gap-2.5",
+    lg: "px-7 py-3.5 text-base gap-3",
   }[size];
 
-  // Varian warna & gaya visual (Deep Teal Theme)
+  // Varian warna & gaya visual (Glow Cyber Teal Identity)
   const variantStyles = {
     primary:
-      "bg-[#156669] hover:bg-[#0E4B4E] text-white focus-visible:ring-[#156669] shadow-md hover:shadow-[#156669]/30 border border-[#1A777B]",
+      "bg-gradient-to-r from-[#0D9488] via-[#14B8A6] to-[#2DD4BF] text-[#041F21] font-extrabold shadow-[0_0_25px_rgba(45,212,191,0.35)] hover:shadow-[0_0_35px_rgba(45,212,191,0.6)] border border-[#9CE7E3]/40",
     secondary:
-      "bg-white hover:bg-[#E6F3F3] text-[#156669] border border-[#156669]/30 hover:border-[#156669] focus-visible:ring-[#156669] shadow-xs",
+      "bg-[#0A383A]/80 hover:bg-[#0E4B4E] text-[#9CE7E3] border border-[#2DD4BF]/40 hover:border-[#2DD4BF] shadow-lg shadow-black/30",
     header:
-      "bg-[#156669] hover:bg-[#0E4B4E] text-white focus-visible:ring-[#156669] shadow-xs text-xs md:text-sm px-4 py-2 border border-[#1A777B]",
+      "bg-gradient-to-r from-[#0D9488] to-[#2DD4BF] text-[#041F21] font-extrabold text-xs md:text-sm px-4 py-2 shadow-[0_0_20px_rgba(45,212,191,0.3)] hover:shadow-[0_0_30px_rgba(45,212,191,0.55)] border border-[#9CE7E3]/50",
     white:
-      "bg-white hover:bg-teal-50 text-[#156669] border border-white font-extrabold focus-visible:ring-white shadow-xl shadow-black/25",
+      "bg-gradient-to-r from-[#2DD4BF] via-[#5EEAD4] to-[#9CE7E3] text-[#031B1D] font-extrabold shadow-[0_0_30px_rgba(45,212,191,0.45)] hover:shadow-[0_0_45px_rgba(45,212,191,0.7)] border border-white/60",
   }[variant];
 
   // Wrapper style
   const wrapperStyles = isFullWidth
-    ? "flex flex-col items-center w-full gap-1"
-    : "inline-flex flex-col items-center sm:items-start gap-1 w-full sm:w-auto";
+    ? "flex flex-col items-center w-full gap-1.5"
+    : "inline-flex flex-col items-center sm:items-start gap-1.5 w-full sm:w-auto";
+
+  const buttonContent = (
+    <>
+      {/* Animated Light Sweep Effect */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 translate-x-[-200%] group-hover:translate-x-[350%] transition-transform duration-1000 ease-out pointer-events-none"
+      />
+
+      <Download className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5 group-hover:scale-110" />
+      <span className="tracking-wide">Download APK</span>
+      <Sparkles className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
+    </>
+  );
 
   // Jika URL APK sudah dikonfigurasi, gunakan tautan unduhan langsung
   if (isUrlAvailable) {
@@ -63,13 +77,12 @@ export default function DownloadButton({
           className={`${baseStyles} ${sizeStyles} ${variantStyles} w-full sm:w-auto ${className}`}
           aria-label={`Unduh file instalasi APK ${appConfig.name} untuk Android`}
         >
-          <Download className="w-4 h-4 shrink-0 transition-transform group-hover:translate-y-0.5" />
-          <span>Download APK</span>
+          {buttonContent}
         </a>
 
         {showMeta && (appConfig.version || appConfig.fileSize) && (
-          <div className="flex items-center gap-2 text-[11px] text-teal-800 font-medium pl-1">
-            <Smartphone className="w-3.5 h-3.5 text-teal-700" />
+          <div className="flex items-center gap-2 text-[11px] text-teal-200/90 font-medium pl-1">
+            <Smartphone className="w-3.5 h-3.5 text-[#2DD4BF]" />
             <span>Android</span>
             {appConfig.version && (
               <>
@@ -104,13 +117,12 @@ export default function DownloadButton({
         aria-haspopup="dialog"
         aria-label={`Informasi berkas unduhan APK ${appConfig.name} untuk Android`}
       >
-        <Download className="w-4 h-4 shrink-0 transition-transform group-hover:translate-y-0.5" />
-        <span>Download APK</span>
+        {buttonContent}
       </button>
 
       {showMeta && (appConfig.version || appConfig.fileSize) && (
-        <div className="flex items-center gap-2 text-[11px] text-teal-800 font-medium pl-1">
-          <Smartphone className="w-3.5 h-3.5 text-teal-700" />
+        <div className="flex items-center gap-2 text-[11px] text-teal-200/90 font-medium pl-1">
+          <Smartphone className="w-3.5 h-3.5 text-[#2DD4BF]" />
           <span>Android</span>
           {appConfig.version && (
             <>

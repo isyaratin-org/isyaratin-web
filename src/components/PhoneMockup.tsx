@@ -28,11 +28,11 @@ export default function PhoneMockup() {
       aria-label="Pratinjau antarmuka aplikasi Isyaratin Android"
       className="relative mx-auto w-full max-w-[280px] sm:max-w-[340px] md:max-w-[370px] select-none"
     >
-      {/* Efek Cahaya Latar Belakang (Teal & Cyan Glow) */}
-      <div className="absolute -inset-4 bg-gradient-to-tr from-[#156669]/30 via-[#1E8E93]/20 to-[#9CE7E3]/25 rounded-[52px] blur-2xl -z-10 animate-pulse-subtle" />
+      {/* Efek Cahaya Latar Belakang (Cyber Teal Neon Glow) */}
+      <div className="absolute -inset-6 bg-gradient-to-tr from-[#0D9488]/40 via-[#14B8A6]/30 to-[#2DD4BF]/40 rounded-[60px] blur-3xl -z-10 animate-pulse-glow" />
 
       {/* Frame Ponsel Android Modern */}
-      <div className="relative bg-slate-900 p-3 sm:p-3.5 rounded-[48px] shadow-2xl ring-1 ring-slate-800/80 border-4 border-slate-700/60">
+      <div className="relative bg-[#05181A] p-3 sm:p-3.5 rounded-[48px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] ring-1 ring-teal-500/30 border-4 border-teal-900/60">
         {/* Tombol Fisik Samping */}
         <div className="absolute -left-[7px] top-28 w-[3px] h-10 bg-slate-600 rounded-l-md" />
         <div className="absolute -left-[7px] top-42 w-[3px] h-14 bg-slate-600 rounded-l-md" />

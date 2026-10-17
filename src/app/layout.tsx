@@ -13,8 +13,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://isyaratin.com";
 
 export const viewport: Viewport = {
-  themeColor: "#156669",
-  colorScheme: "light",
+  themeColor: "#061d20",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -122,7 +122,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className="min-h-screen flex flex-col bg-[#F3F8F8] text-[#0D2E30] antialiased selection:bg-[#C9ECEB] selection:text-[#0A3638]"
+        className="min-h-screen flex flex-col bg-[#061D20] text-teal-50 antialiased selection:bg-[#156669] selection:text-[#9CE7E3]"
       >
         {children}
       </body>

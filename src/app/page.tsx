@@ -10,6 +10,7 @@ import Faq from "@/components/Faq";
 import DownloadCta from "@/components/DownloadCta";
 import Footer from "@/components/Footer";
 import DownloadModal from "@/components/DownloadModal";
+import AmbientBackground from "@/components/AmbientBackground";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,16 +24,19 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col selection:bg-indigo-100 selection:text-indigo-900">
+    <div className="relative flex min-h-screen flex-col bg-[#061D20] text-teal-50 selection:bg-[#156669] selection:text-[#9CE7E3]">
       <a href="#konten-utama" className="skip-link">
         Lewati ke konten utama
       </a>
+
+      {/* Dynamic Animated Ambient Background */}
+      <AmbientBackground />
 
       {/* Navigasi Utama */}
       <Navbar onOpenUnavailableModal={handleOpenModal} />
 
       {/* Konten Halaman */}
-      <main id="konten-utama" className="flex-1">
+      <main id="konten-utama" className="flex-1 relative z-10">
         {/* Hero Section */}
         <Hero onOpenUnavailableModal={handleOpenModal} />
 

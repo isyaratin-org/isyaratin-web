@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle, CheckCircle2 } from "lucide-react";
+import { ChevronDown, HelpCircle, CheckCircle2, Sparkles } from "lucide-react";
 import { appConfig } from "@/config/appConfig";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Faq() {
   const [openIds, setOpenIds] = useState<string[]>(["faq-cara-pasang"]);
@@ -14,31 +15,53 @@ export default function Faq() {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#F3F8F8] border-t border-teal-100/70 relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-24 relative overflow-hidden text-white">
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-[#0E7490]/15 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-16 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-teal-200 text-xs font-bold text-[#156669] shadow-xs">
-            <HelpCircle className="w-3.5 h-3.5 text-[#156669]" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 space-y-4"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E3E42]/80 border border-teal-500/40 text-xs font-bold text-[#9CE7E3] shadow-[0_0_15px_rgba(45,212,191,0.2)]">
+            <HelpCircle className="w-3.5 h-3.5 text-[#2DD4BF]" />
             <span>Pertanyaan yang Sering Diajukan</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0D2E30] tracking-tight">
-            Panduan &amp; Informasi Unduhan APK
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            Jawaban seputar proses instalasi berkas APK di Android, fitur komunikasi dua arah, dan status rilis.
-          </p>
-        </div>
 
-        {/* Accordion FAQ */}
-        <div className="space-y-3 sm:space-y-4">
-          {appConfig.faqs.map((faq) => {
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white">
+            Panduan &amp;{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2DD4BF] to-[#9CE7E3]">
+              Informasi Unduhan APK
+            </span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-teal-100/80 leading-relaxed">
+            Jawaban lengkap seputar proses instalasi berkas APK di Android, komunikasi dua arah berbasis AI, dan keamanan data.
+          </p>
+        </motion.div>
+
+        {/* Accordion FAQ dengan Framer Motion */}
+        <div className="space-y-4">
+          {appConfig.faqs.map((faq, index) => {
             const isOpen = openIds.includes(faq.id);
 
             return (
-              <div
+              <motion.div
                 key={faq.id}
-                className="bg-white rounded-2xl border border-teal-100 shadow-xs overflow-hidden transition-all duration-200 hover:border-teal-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden backdrop-blur-xl ${
+                  isOpen
+                    ? "bg-gradient-to-b from-[#0E3E42]/90 via-[#0A2F33]/90 to-[#072427]/95 border-teal-400/60 shadow-[0_0_30px_rgba(45,212,191,0.2)]"
+                    : "bg-gradient-to-b from-[#0E3E42]/50 to-[#072427]/70 border-teal-500/20 hover:border-teal-400/40"
+                }`}
               >
                 <button
                   type="button"
@@ -46,50 +69,68 @@ export default function Faq() {
                   onClick={() => toggleFaq(faq.id)}
                   aria-expanded={isOpen}
                   aria-controls={`panel-${faq.id}`}
-                  className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-3 sm:gap-4 font-bold text-[#0D2E30] hover:text-[#156669] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#156669]"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-white hover:text-[#9CE7E3] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF]"
                 >
-                  <span className="text-sm sm:text-base md:text-lg leading-snug">{faq.question}</span>
+                  <span className="text-base sm:text-lg leading-snug">
+                    {faq.question}
+                  </span>
                   <div
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#E6F3F3] flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 bg-[#156669] text-white" : "text-[#156669]"
+                    className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                      isOpen
+                        ? "rotate-180 bg-[#2DD4BF] text-[#041F21] shadow-[0_0_15px_rgba(45,212,191,0.4)]"
+                        : "bg-teal-900/50 text-[#9CE7E3] border border-teal-500/30"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div
-                    id={`panel-${faq.id}`}
-                    role="region"
-                    aria-labelledby={`button-${faq.id}`}
-                    className="px-4 sm:px-6 pb-5 sm:pb-6 pt-1 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed border-t border-teal-50 animate-in fade-in duration-200"
-                  >
-                    <p className="whitespace-pre-line">{faq.answer}</p>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      id={`panel-${faq.id}`}
+                      role="region"
+                      aria-labelledby={`button-${faq.id}`}
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-teal-100/85 leading-relaxed border-t border-teal-800/40">
+                        <p className="whitespace-pre-line">{faq.answer}</p>
 
-                    {faq.highlight && (
-                      <div className="mt-4 p-3.5 rounded-xl bg-[#E6F3F3] border border-teal-200 flex items-start gap-2.5 text-xs text-[#0D2E30] font-semibold">
-                        <CheckCircle2 className="w-4 h-4 text-[#156669] shrink-0 mt-0.5" />
-                        <span>{faq.highlight}</span>
+                        {faq.highlight && (
+                          <div className="mt-4 p-4 rounded-xl bg-[#092B2E]/90 border border-teal-400/30 flex items-start gap-3 text-xs sm:text-sm text-[#9CE7E3] font-medium shadow-md">
+                            <CheckCircle2 className="w-4 h-4 text-[#2DD4BF] shrink-0 mt-0.5" />
+                            <span>{faq.highlight}</span>
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                )}
-              </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Kontak Bantuan */}
-        <div className="mt-12 text-center text-xs text-slate-500">
-          Masih ada pertanyaan yang belum terjawab? Hubungi tim melalui{" "}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-14 text-center text-xs sm:text-sm text-teal-300/70"
+        >
+          Masih ada pertanyaan yang belum terjawab? Hubungi tim pengembang melalui{" "}
           <a
             href={`mailto:${appConfig.contact.email}`}
-            className="text-[#156669] font-bold hover:underline"
+            className="text-[#2DD4BF] font-bold hover:underline"
           >
             {appConfig.contact.email}
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

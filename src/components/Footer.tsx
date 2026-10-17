@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Mail, Heart } from "lucide-react";
+import { Mail, Heart, Sparkles } from "lucide-react";
 import { appConfig } from "@/config/appConfig";
 import HandshakeLogo from "./HandshakeLogo";
 
@@ -10,19 +10,27 @@ export default function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="bg-[#093537] text-teal-100/90 pt-16 pb-12 border-t border-teal-900">
+    <footer className="bg-[#041618] text-teal-100/90 pt-16 pb-12 border-t border-teal-500/20 relative overflow-hidden z-10">
+      {/* Subtle top glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#2DD4BF]/50 to-transparent" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-12 border-b border-teal-900/80">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-12 border-b border-teal-900/60">
           {/* Identitas Isyaratin (2 Kolom) */}
           <div className="lg:col-span-2 space-y-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded-xl"
+              className="inline-flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF] rounded-xl group"
               aria-label={`${appConfig.name} - Beranda`}
             >
-            <HandshakeLogo size={36} variant="teal-on-white" className="shrink-0" />
-              <span className="font-black text-2xl text-white tracking-wider">
+              <HandshakeLogo
+                size={38}
+                variant="white-on-teal"
+                className="shrink-0 transition-transform group-hover:scale-105 shadow-[0_0_15px_rgba(45,212,191,0.3)]"
+              />
+              <span className="font-black text-2xl text-white tracking-wider group-hover:text-[#9CE7E3] transition-colors flex items-center gap-1.5">
                 {appConfig.name}
+                <Sparkles className="w-4 h-4 text-[#2DD4BF] opacity-80" />
               </span>
             </Link>
 
@@ -39,7 +47,7 @@ export default function Footer() {
 
           {/* Tautan Navigasi */}
           <div className="space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-teal-300">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#2DD4BF]">
               Navigasi Cepat
             </h3>
             <ul className="space-y-2 text-sm">
@@ -47,7 +55,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-teal-200/80 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded px-1 -mx-1"
+                    className="text-teal-200/80 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF] rounded px-1 -mx-1"
                   >
                     {item.label}
                   </a>
@@ -58,7 +66,7 @@ export default function Footer() {
 
           {/* Informasi Berkas & Platform */}
           <div className="space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-teal-300">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#2DD4BF]">
               Platform &amp; Rilis
             </h3>
             <ul className="space-y-2 text-sm text-teal-200/80">
@@ -75,8 +83,8 @@ export default function Footer() {
 
           {/* Kontak & Komunitas */}
           <div className="space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-teal-300">
-              Kontak Tim (Placeholder)
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#2DD4BF]">
+              Kontak Tim
             </h3>
             <p className="text-xs text-teal-200/80 leading-relaxed">
               {appConfig.contact.supportText}
@@ -84,7 +92,7 @@ export default function Footer() {
             <div className="space-y-2 pt-1 text-sm">
               <a
                 href={`mailto:${appConfig.contact.email}`}
-                className="inline-flex items-center gap-2 text-teal-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded"
+                className="inline-flex items-center gap-2 text-[#9CE7E3] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF] rounded"
               >
                 <Mail className="w-4 h-4 shrink-0" />
                 <span>{appConfig.contact.email}</span>
