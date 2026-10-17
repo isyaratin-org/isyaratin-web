@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Mail, Heart, Sparkles } from "lucide-react";
+import { Mail } from "lucide-react";
 import { appConfig } from "@/config/appConfig";
 import HandshakeLogo from "./HandshakeLogo";
 
@@ -11,13 +11,10 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#041618] text-teal-100/90 pt-16 pb-12 border-t border-teal-500/20 relative overflow-hidden z-10">
-      {/* Subtle top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#2DD4BF]/50 to-transparent" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-12 border-b border-teal-900/60">
-          {/* Identitas Isyaratin (2 Kolom) */}
-          <div className="lg:col-span-2 space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 pb-12 border-b border-teal-900/60">
+          {/* Identitas Isyaratin */}
+          <div className="space-y-4">
             <Link
               href="/"
               className="inline-flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF] rounded-xl group"
@@ -26,23 +23,16 @@ export default function Footer() {
               <HandshakeLogo
                 size={38}
                 variant="white-on-teal"
-                className="shrink-0 transition-transform group-hover:scale-105 shadow-[0_0_15px_rgba(45,212,191,0.3)]"
+                className="shrink-0 transition-transform group-hover:scale-105"
               />
-              <span className="font-black text-2xl text-white tracking-wider group-hover:text-[#9CE7E3] transition-colors flex items-center gap-1.5">
+              <span className="font-black text-2xl text-white tracking-wider group-hover:text-[#9CE7E3] transition-colors">
                 {appConfig.name}
-                <Sparkles className="w-4 h-4 text-[#2DD4BF] opacity-80" />
               </span>
             </Link>
 
             <p className="text-sm text-teal-200/80 leading-relaxed max-w-sm">
-              {appConfig.tagline}. {appConfig.shortDescription}
+              {appConfig.shortDescription}
             </p>
-
-            <div className="text-xs text-teal-300/70 pt-2 flex items-center gap-1.5">
-              <span>Dikembangkan dengan semangat inklusivitas</span>
-              <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400 inline" />
-              <span>untuk Indonesia.</span>
-            </div>
           </div>
 
           {/* Tautan Navigasi */}
@@ -67,7 +57,7 @@ export default function Footer() {
           {/* Informasi Berkas & Platform */}
           <div className="space-y-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#2DD4BF]">
-              Platform &amp; Rilis
+              Platform & Rilis
             </h3>
             <ul className="space-y-2 text-sm text-teal-200/80">
               <li>Platform: <span className="text-white font-semibold">Android OS</span></li>
@@ -128,7 +118,7 @@ export default function Footer() {
         {/* Baris Hak Cipta */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-teal-300/60">
           <p>
-            &copy; {currentYear} {appConfig.name}. Menjembatani Komunikasi, Mewujudkan Inklusi.
+            &copy; {currentYear} {appConfig.name}. {appConfig.tagline}.
           </p>
           <p className="text-teal-300/60 text-center sm:text-right">
             Asisten Komunikasi Dua Arah Bahasa Isyarat Berbasis AI dengan Avatar 3D.

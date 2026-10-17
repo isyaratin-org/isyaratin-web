@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { appConfig } from "@/config/appConfig";
 import DownloadButton from "./DownloadButton";
 import HandshakeLogo from "./HandshakeLogo";
@@ -45,15 +45,13 @@ export default function Navbar({ onOpenUnavailableModal }: NavbarProps) {
               <HandshakeLogo
                 size={38}
                 variant="white-on-teal"
-                className="transition-transform duration-300 group-hover:scale-105 shrink-0 shadow-[0_0_15px_rgba(45,212,191,0.3)]"
+                className="transition-transform duration-300 group-hover:scale-105 shrink-0"
               />
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#2DD4BF] animate-ping opacity-75" />
             </div>
 
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-wider text-white group-hover:text-[#9CE7E3] transition-colors flex items-center gap-1.5">
+              <span className="font-extrabold text-xl tracking-wider text-white group-hover:text-[#9CE7E3] transition-colors">
                 {appConfig.name}
-                <Sparkles className="w-3.5 h-3.5 text-[#2DD4BF] opacity-80" />
               </span>
               <span className="text-[10px] font-medium -mt-1 text-teal-300/80 hidden sm:inline tracking-wider">
                 {appConfig.tagline}

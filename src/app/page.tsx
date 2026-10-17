@@ -40,17 +40,27 @@ export default function Home() {
         {/* Hero Section */}
         <Hero onOpenUnavailableModal={handleOpenModal} />
 
+        <div className="section-divider max-w-5xl mx-auto" />
+
         {/* Fitur Utama Aplikasi */}
         <Features />
+
+        <div className="section-divider max-w-5xl mx-auto" />
 
         {/* 3 Langkah Cara Kerja */}
         <HowItWorks />
 
+        <div className="section-divider max-w-5xl mx-auto" />
+
         {/* Prasyarat Instalasi Android */}
         <Requirements />
 
+        <div className="section-divider max-w-5xl mx-auto" />
+
         {/* Pertanyaan yang Sering Diajukan (FAQ) */}
         <Faq />
+
+        <div className="section-divider max-w-5xl mx-auto" />
 
         {/* Call to Action Unduhan */}
         <DownloadCta onOpenUnavailableModal={handleOpenModal} />

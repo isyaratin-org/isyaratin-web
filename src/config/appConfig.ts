@@ -2,7 +2,6 @@ export interface FeatureItem {
   id: string;
   title: string;
   description: string;
-  badge: string;
   iconName: "camera" | "mic" | "user" | "history";
 }
 
@@ -10,7 +9,6 @@ export interface HowItWorksStep {
   number: string;
   title: string;
   description: string;
-  detail: string;
 }
 
 export interface FaqItem {
@@ -33,7 +31,7 @@ export const appConfig = {
   heroTitle:
     "AI-Powered Two-Way Sign Language Communication Assistant for Inclusive Accessibility With 3D Avatar",
   shortDescription:
-    "Aplikasi berbasis AI yang menjembatani komunikasi dua arah antara teman Tuli (penyandang tunarungu) dan masyarakat melalui penerjemahan gerakan bahasa isyarat (BISINDO) ke teks/suara serta ucapan ke avatar 3D interaktif.",
+    "Aplikasi berbasis AI yang menerjemahkan bahasa isyarat (BISINDO) ke teks/suara, dan ucapan ke avatar 3D — dua arah, real-time, di Android.",
   fullDescription:
     "Isyaratin hadir sebagai solusi aksesibilitas cerdas berbasis AI yang menghubungkan komunitas Tuli dan masyarakat luas secara setara, real-time, dan mudah diakses langsung melalui perangkat Android.",
 
@@ -68,33 +66,29 @@ export const appConfig = {
     {
       id: "mulai-isyarat",
       title: "Mulai Isyarat (Kamera)",
-      badge: "Isyarat ke Teks/Suara",
       description:
-        "Mendeteksi gerakan tangan dan bahasa isyarat secara real-time melalui kamera ponsel, lalu menerjemahkannya langsung ke dalam bentuk teks dan suara.",
+        "Mendeteksi gerakan tangan dan bahasa isyarat secara real-time melalui kamera, lalu menerjemahkannya ke teks dan suara.",
       iconName: "camera",
     },
     {
       id: "voice-note",
       title: "Voice Note Interaktif",
-      badge: "Ucapan ke Isyarat",
       description:
-        "Menangkap suara ucapan dari lawan bicara dengar dan mengonversinya menjadi gerakan bahasa isyarat yang diperagakan oleh avatar 3D.",
+        "Menangkap suara ucapan lawan bicara dan mengonversinya menjadi gerakan bahasa isyarat yang diperagakan avatar 3D.",
       iconName: "mic",
     },
     {
       id: "avatar-3d",
       title: "Respon Avatar Isyarat 3D",
-      badge: "Visualisasi 3D Inklusif",
       description:
-        "Avatar 3D interaktif memperagakan gestur bahasa isyarat secara natural dan akurat lengkap dengan kotak teks balasan serta opsi putar ulang percakapan.",
+        "Avatar 3D memperagakan gestur bahasa isyarat secara natural, lengkap dengan kotak teks balasan dan opsi putar ulang.",
       iconName: "user",
     },
     {
       id: "riwayat-percakapan",
       title: "Riwayat & Catatan Sesi",
-      badge: "Transkrip Otomatis",
       description:
-        "Menyimpan riwayat percakapan penting (seperti konsultasi medis, layanan publik, atau percakapan harian) lengkap dengan waktu dan catatan lokasi.",
+        "Menyimpan riwayat percakapan penting lengkap dengan waktu dan catatan lokasi.",
       iconName: "history",
     },
   ] as FeatureItem[],
@@ -105,22 +99,19 @@ export const appConfig = {
       number: "01",
       title: "Unduh Berkas APK",
       description:
-        "Dapatkan berkas installer resmi Isyaratin ke ponsel Android Anda melalui tombol unduh langsung di situs ini.",
-      detail: "Pastikan koneksi internet stabil saat proses pengunduhan berkas berlangsung.",
+        "Dapatkan berkas installer resmi Isyaratin ke ponsel Android Anda melalui tombol unduh di situs ini.",
     },
     {
       number: "02",
       title: "Beri Izin & Pasang",
       description:
-        "Buka berkas APK di ponsel Anda, lalu aktifkan izin 'Izinkan dari sumber ini' pada menu Pengaturan Android bila diminta.",
-      detail: "Prosedur standar keamanan Android untuk aplikasi resmi yang diunduh via peramban.",
+        "Buka berkas APK, lalu aktifkan izin 'Izinkan dari sumber ini' pada menu Pengaturan Android bila diminta.",
     },
     {
       number: "03",
       title: "Mulai Komunikasi Dua Arah",
       description:
-        "Buka aplikasi Isyaratin, gunakan fitur Kamera untuk menerjemahkan isyarat atau Voice Note untuk menampilkan avatar 3D.",
-      detail: "Nikmati pengalaman komunikasi dua arah yang inklusif dan ramah di genggaman Anda.",
+        "Buka aplikasi, gunakan Kamera untuk menerjemahkan isyarat atau Voice Note untuk menampilkan avatar 3D.",
     },
   ] as HowItWorksStep[],
 
@@ -130,28 +121,28 @@ export const appConfig = {
       title: "Sistem Operasi Android",
       detail: "Smartphone atau Tablet Android",
       description:
-        "Aplikasi Isyaratin dirancang khusus untuk platform Android dan didistribusikan dalam format berkas paket instalasi APK.",
+        "Isyaratin dirancang khusus untuk Android dan didistribusikan dalam format APK.",
       isImportant: true,
     },
     {
       title: "Akses Kamera & Mikrofon",
       detail: "Izin perangkat untuk fitur AI",
       description:
-        "Kamera diperlukan untuk fitur penerjemah isyarat visual, dan mikrofon diperlukan untuk fitur Voice Note suara-ke-isyarat.",
+        "Kamera untuk penerjemah isyarat visual, mikrofon untuk Voice Note suara-ke-isyarat.",
       isImportant: true,
     },
     {
       title: "Ruang Penyimpanan Memadai",
       detail: "Penyimpanan internal ponsel",
       description:
-        "Pastikan ruang penyimpanan internal mencukupi untuk mengunduh installer APK serta menyimpan data aplikasi dan riwayat percakapan.",
+        "Pastikan ruang penyimpanan cukup untuk installer APK dan data riwayat percakapan.",
       isImportant: false,
     },
     {
       title: "Izin Pemasangan Sumber Ini",
       detail: "Pengaturan keamanan Android",
       description:
-        "Aktifkan opsi 'Izinkan dari sumber ini' (Allow from this source) di setelan browser atau File Manager saat proses instalasi dimulai.",
+        "Aktifkan 'Izinkan dari sumber ini' di setelan browser atau File Manager saat instalasi.",
       isImportant: true,
     },
   ] as RequirementItem[],
