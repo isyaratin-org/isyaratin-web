@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#093537] text-teal-100/90 pt-16 pb-12 border-t border-teal-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-teal-900/80">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-12 border-b border-teal-900/80">
           {/* Identitas Isyaratin (2 Kolom) */}
           <div className="lg:col-span-2 space-y-4">
             <Link

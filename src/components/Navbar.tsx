@@ -129,7 +129,7 @@ export default function Navbar({ onOpenUnavailableModal }: NavbarProps) {
       {mobileMenuOpen && (
         <div
           id="mobile-navigation"
-          className="md:hidden bg-white/95 backdrop-blur-md border-b border-teal-100 px-4 pt-3 pb-6 shadow-xl animate-in fade-in slide-in-from-top-2 duration-200"
+          className="md:hidden bg-white/95 backdrop-blur-md border-b border-teal-100 px-4 pt-3 pb-6 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200"
         >
           <nav className="flex flex-col space-y-1 mb-4">
             {appConfig.navigation.map((item) => (

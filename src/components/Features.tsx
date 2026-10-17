@@ -29,25 +29,25 @@ export default function Features() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6F3F3] border border-teal-200 text-xs font-bold text-[#156669]">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Fitur Unggulan Isyaratin</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0D2E30] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0D2E30] tracking-tight">
             Komunikasi Dua Arah Berbasis AI &amp; Avatar 3D
           </h2>
-          <p className="text-lg sm:text-xl text-slate-700 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed">
             Menghilangkan batas komunikasi antara penyandang tunarungu dan masyarakat melalui penerjemahan cerdas yang cepat, akurat, dan ekspresif.
           </p>
         </div>
 
         {/* Grid Kartu Fitur */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
           {appConfig.features.map((feature) => (
             <div
               key={feature.id}
-              className="group relative bg-[#F8FCFC] hover:bg-white rounded-3xl p-7 border-2 border-teal-100 hover:border-[#156669]/50 shadow-xs hover:shadow-xl hover:shadow-[#156669]/10 transition-all duration-300 flex flex-col justify-between"
+              className="group relative bg-[#F8FCFC] hover:bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 border-2 border-teal-100 hover:border-[#156669]/50 shadow-xs hover:shadow-xl hover:shadow-[#156669]/10 transition-all duration-300 flex flex-col justify-between"
             >
               {/* Highlight Aksen Teal saat Hover */}
               <div className="absolute top-0 left-6 right-6 h-1 bg-gradient-to-r from-[#156669] to-[#9CE7E3] opacity-0 group-hover:opacity-100 rounded-b transition-opacity duration-300" />

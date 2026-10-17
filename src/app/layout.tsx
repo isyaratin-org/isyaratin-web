@@ -50,7 +50,6 @@ export const metadata: Metadata = {
   publisher: "ISYARATIN",
   applicationName: appConfig.name,
   category: "technology",
-  manifest: "/manifest.webmanifest",
   alternates: {
     canonical: "/",
   },
@@ -92,12 +91,6 @@ export const metadata: Metadata = {
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    other: [
-      {
-        rel: "apple-touch-icon-precomposed",
-        url: "/apple-touch-icon.png",
-      },
-    ],
   },
   robots: {
     index: true,
@@ -113,8 +106,6 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "ID",
     "geo.placename": "Indonesia",
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "black-translucent",
     "format-detection": "telephone=no",
   },
 };

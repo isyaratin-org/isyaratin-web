@@ -86,43 +86,44 @@ export default function Hero({
             </div>
 
             {/* Judul Utama Sesuai Mockup */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.25]">
-              <span className="text-[#9CE7E3] block text-xl sm:text-2xl font-bold tracking-[0.2em] mb-3">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.25]">
+              <span className="text-[#9CE7E3] block text-lg sm:text-2xl font-bold tracking-[0.2em] mb-2 sm:mb-3">
                 ISYARATIN
               </span>
               Asisten Komunikasi Bahasa Isyarat Dua Arah Berbasis AI dengan Avatar 3D
             </h1>
 
             {/* Deskripsi Singkat */}
-            <p className="text-base sm:text-lg md:text-xl text-white max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
               {appConfig.shortDescription}
             </p>
 
             {/* Fitur Inti Cepat */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm text-white pt-1">
-              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/25">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-white pt-1">
+              <div className="flex items-center gap-2 bg-white/10 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/25">
                 <Smartphone className="w-4 h-4 text-[#9CE7E3]" aria-hidden="true" />
                 <span>Khusus Perangkat Android</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/25">
+              <div className="flex items-center gap-2 bg-white/10 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/25">
                 <ShieldCheck className="w-4 h-4 text-[#9CE7E3]" aria-hidden="true" />
                 <span>Installer APK Resmi Bebas Iklan</span>
               </div>
             </div>
 
             {/* Tombol Aksi (CTA) */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
               <DownloadButton
                 variant="white"
                 size="lg"
                 showMeta={true}
+                className="w-full sm:w-auto text-center"
                 onOpenUnavailableModal={onOpenUnavailableModal}
                 id="hero-download-button"
               />
 
               <a
                 href="#fitur"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-base font-bold text-white bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-bold text-white bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <span>Pelajari Fitur AI</span>
                 <ArrowRight className="w-4 h-4 text-teal-200" />
@@ -130,7 +131,7 @@ export default function Hero({
             </div>
 
             {/* Catatan Transparan */}
-            <p className="text-sm text-teal-100 pt-1 max-w-xl mx-auto lg:mx-0">
+            <p className="text-xs sm:text-sm text-teal-100 pt-1 max-w-xl mx-auto lg:mx-0">
               * Aplikasi memerlukan izin akses kamera dan mikrofon pada ponsel Android Anda untuk penerjemahan dua arah secara real-time.
             </p>
           </div>

@@ -50,7 +50,7 @@ export default function DownloadButton({
   // Wrapper style
   const wrapperStyles = isFullWidth
     ? "flex flex-col items-center w-full gap-1"
-    : "inline-flex flex-col items-start gap-1";
+    : "inline-flex flex-col items-center sm:items-start gap-1 w-full sm:w-auto";
 
   // Jika URL APK sudah dikonfigurasi, gunakan tautan unduhan langsung
   if (isUrlAvailable) {
@@ -60,7 +60,7 @@ export default function DownloadButton({
           id={id}
           href={appConfig.apkDownloadUrl}
           download
-          className={`${baseStyles} ${sizeStyles} ${variantStyles} ${className}`}
+          className={`${baseStyles} ${sizeStyles} ${variantStyles} w-full sm:w-auto ${className}`}
           aria-label={`Unduh file instalasi APK ${appConfig.name} untuk Android`}
         >
           <Download className="w-4 h-4 shrink-0 transition-transform group-hover:translate-y-0.5" />
@@ -100,7 +100,7 @@ export default function DownloadButton({
             onOpenUnavailableModal();
           }
         }}
-        className={`${baseStyles} ${sizeStyles} ${variantStyles} ${className}`}
+        className={`${baseStyles} ${sizeStyles} ${variantStyles} w-full sm:w-auto ${className}`}
         aria-haspopup="dialog"
         aria-label={`Informasi berkas unduhan APK ${appConfig.name} untuk Android`}
       >

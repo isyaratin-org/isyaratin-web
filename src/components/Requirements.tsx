@@ -24,11 +24,11 @@ export default function Requirements() {
     <section id="prasyarat" className="py-20 bg-white border-t border-teal-100/60 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6F3F3] border border-teal-200 text-xs font-bold text-[#156669]">
             <span>Kesesuaian Perangkat</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0D2E30] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0D2E30] tracking-tight">
             Prasyarat Sistem di Perangkat Android
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
@@ -37,11 +37,11 @@ export default function Requirements() {
         </div>
 
         {/* Daftar Kartu Prasyarat */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
           {appConfig.requirements.map((req, index) => (
             <div
               key={req.title}
-              className={`p-6 rounded-2xl border transition-all ${
+              className={`p-4 sm:p-6 rounded-2xl border transition-all ${
                 req.isImportant
                   ? "bg-[#F8FCFC] border-[#156669]/40 shadow-xs"
                   : "bg-white border-teal-100"

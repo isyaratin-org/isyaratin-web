@@ -22,11 +22,11 @@ export default function HowItWorks() {
     <section id="cara-kerja" className="py-20 bg-[#F3F8F8] border-t border-teal-100/70 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-teal-200 text-xs font-bold text-[#156669] shadow-xs">
             <span>Alur Cepat &amp; Praktis</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0D2E30] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0D2E30] tracking-tight">
             Tiga Langkah Memulai Percakapan Inklusif
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
@@ -35,11 +35,11 @@ export default function HowItWorks() {
         </div>
 
         {/* 3 Langkah Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8 relative">
           {appConfig.howItWorks.map((step, index) => (
             <div
               key={step.number}
-              className="relative bg-white rounded-2xl p-7 border border-teal-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
+              className="relative bg-white rounded-2xl p-5 sm:p-7 border border-teal-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
             >
               <div>
                 {/* Header Langkah & Nomor */}

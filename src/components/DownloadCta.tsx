@@ -32,20 +32,21 @@ export default function DownloadCta({ onOpenUnavailableModal }: DownloadCtaProps
           <span>Menjembatani Komunikasi, Mewujudkan Inklusi</span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white max-w-3xl mx-auto leading-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-3xl mx-auto leading-tight">
           Siap Merasakan Kemudahan Komunikasi Dua Arah Bahasa Isyarat?
         </h2>
 
-        <p className="text-base sm:text-lg text-teal-100/90 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg text-teal-100/90 max-w-2xl mx-auto leading-relaxed">
           Unduh installer resmi APK Isyaratin ke ponsel Android Anda sekarang dan mulailah berinteraksi tanpa batas.
         </p>
 
         {/* Tombol Unduh & Informasi Tambahan */}
-        <div className="flex flex-col items-center justify-center gap-4 pt-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 w-full max-w-xs sm:max-w-none mx-auto">
           <DownloadButton
             variant="white"
             size="lg"
             showMeta={true}
+            className="w-full sm:w-auto text-center"
             onOpenUnavailableModal={onOpenUnavailableModal}
             id="cta-download-button"
           />

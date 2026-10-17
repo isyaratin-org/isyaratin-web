@@ -5,11 +5,13 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   body {
     background-color: #f3f8f8;
     color: #0d2e30;
+    overflow-x: hidden;
     font-size: 1.0625rem;
     line-height: 1.7;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";

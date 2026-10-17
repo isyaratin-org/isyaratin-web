@@ -26,7 +26,7 @@ export default function PhoneMockup() {
     <div
       role="region"
       aria-label="Pratinjau antarmuka aplikasi Isyaratin Android"
-      className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] select-none"
+      className="relative mx-auto w-full max-w-[280px] sm:max-w-[340px] md:max-w-[370px] select-none"
     >
       {/* Efek Cahaya Latar Belakang (Teal & Cyan Glow) */}
       <div className="absolute -inset-4 bg-gradient-to-tr from-[#156669]/30 via-[#1E8E93]/20 to-[#9CE7E3]/25 rounded-[52px] blur-2xl -z-10 animate-pulse-subtle" />
@@ -279,30 +279,30 @@ export default function PhoneMockup() {
       </div>
 
       {/* Floating Badge 1 (Kanan Atas) */}
-      <div className="absolute -top-3 -right-3 sm:-right-6 bg-white/95 backdrop-blur-md border border-teal-100 shadow-xl rounded-2xl p-2.5 sm:p-3 flex items-center gap-2.5 animate-float">
-        <div className="w-9 h-9 rounded-xl bg-[#E6F3F3] text-[#156669] flex items-center justify-center shrink-0 font-bold">
-          <Sparkles className="w-4 h-4 text-[#156669]" />
+      <div className="absolute -top-3 right-0 sm:-right-3 md:-right-6 bg-white/95 backdrop-blur-md border border-teal-100 shadow-xl rounded-2xl p-2 sm:p-2.5 md:p-3 flex items-center gap-2 sm:gap-2.5 animate-float">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-xl bg-[#E6F3F3] text-[#156669] flex items-center justify-center shrink-0 font-bold">
+          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#156669]" />
         </div>
         <div>
-          <span className="text-[10px] font-bold text-[#156669] uppercase tracking-wider block">
+          <span className="text-[9px] sm:text-[10px] font-bold text-[#156669] uppercase tracking-wider block">
             Komunikasi AI
           </span>
-          <span className="text-xs font-bold text-slate-800">
+          <span className="text-[11px] sm:text-xs font-bold text-slate-800">
             Dua Arah &amp; Avatar 3D
           </span>
         </div>
       </div>
 
       {/* Floating Badge 2 (Kiri Bawah) */}
-      <div className="absolute -bottom-4 -left-3 sm:-left-6 bg-white/95 backdrop-blur-md border border-teal-100 shadow-xl rounded-2xl p-2.5 sm:p-3 flex items-center gap-2.5 animate-float [animation-delay:2s]">
-        <div className="w-9 h-9 rounded-xl bg-[#156669] text-white flex items-center justify-center shrink-0">
-          <Smartphone className="w-4 h-4" />
+      <div className="absolute -bottom-4 left-0 sm:-left-3 md:-left-6 bg-white/95 backdrop-blur-md border border-teal-100 shadow-xl rounded-2xl p-2 sm:p-2.5 md:p-3 flex items-center gap-2 sm:gap-2.5 animate-float [animation-delay:2s]">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-xl bg-[#156669] text-white flex items-center justify-center shrink-0">
+          <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </div>
         <div>
-          <span className="text-[10px] font-bold text-teal-600 uppercase tracking-wider block">
+          <span className="text-[9px] sm:text-[10px] font-bold text-teal-600 uppercase tracking-wider block">
             Installer Resmi
           </span>
-          <span className="text-xs font-bold text-slate-800">
+          <span className="text-[11px] sm:text-xs font-bold text-slate-800">
             Android APK
           </span>
         </div>
