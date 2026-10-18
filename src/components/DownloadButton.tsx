@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { Download, Smartphone, Check, Copy } from "lucide-react";
+import React from "react";
+import { Download, Smartphone } from "lucide-react";
 import { appConfig } from "@/config/appConfig";
 
 interface DownloadButtonProps {
@@ -9,6 +9,7 @@ interface DownloadButtonProps {
   size?: "sm" | "md" | "lg";
   showMeta?: boolean;
   className?: string;
+  onOpenModal?: () => void;
   onOpenUnavailableModal?: () => void;
   id?: string;
 }
@@ -18,26 +19,27 @@ export default function DownloadButton({
   size = "md",
   showMeta = false,
   className = "",
+  onOpenModal,
   onOpenUnavailableModal,
   id = "download-apk-button",
 }: DownloadButtonProps) {
-  const [copiedSha, setCopiedSha] = useState(false);
-  const isUrlAvailable = Boolean(appConfig.apkDownloadUrl && appConfig.apkDownloadUrl.trim().length > 0);
+  const isUrlAvailable = Boolean(
+    appConfig.apkDownloadUrl && appConfig.apkDownloadUrl.trim().length > 0
+  );
   const isFullWidth = className.includes("w-full");
 
-  const handleCopySha = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (appConfig.sha256) {
-      navigator.clipboard.writeText(appConfig.sha256);
-      setCopiedSha(true);
-      setTimeout(() => setCopiedSha(false), 2000);
+  // Handler untuk membuka panel konfirmasi unduh APK
+  const handleOpenConfirm = () => {
+    if (onOpenModal) {
+      onOpenModal();
+    } else if (onOpenUnavailableModal) {
+      onOpenUnavailableModal();
     }
   };
 
   // Basis gaya tombol
   const baseStyles =
-    "group relative inline-flex items-center justify-center font-bold rounded-xl transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#2DD4BF] active:scale-[0.97] overflow-hidden";
+    "group relative inline-flex items-center justify-center font-bold rounded-xl transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#2DD4BF] active:scale-[0.97] overflow-hidden cursor-pointer";
 
   // Varian ukuran
   const sizeStyles = {
@@ -70,12 +72,11 @@ export default function DownloadButton({
     </>
   );
 
-  const metadataContent = showMeta && (appConfig.version || appConfig.fileSize || appConfig.sha256) && (
-    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 text-[11px] text-teal-200/90 font-medium pl-1">
-      <span className="inline-flex items-center gap-1">
-        <Smartphone className="w-3.5 h-3.5 text-[#2DD4BF]" />
-        <span>Android</span>
-      </span>
+  // Metadata di landing page: bersih, hanya platform, versi, dan ukuran (tanpa SHA-256)
+  const metadataContent = showMeta && (appConfig.version || appConfig.fileSize) && (
+    <div className="flex items-center gap-2 text-[11px] text-teal-200/90 font-medium pl-1">
+      <Smartphone className="w-3.5 h-3.5 text-[#2DD4BF]" />
+      <span>Android</span>
       {appConfig.version && (
         <>
           <span className="text-teal-500/60">•</span>
@@ -88,33 +89,32 @@ export default function DownloadButton({
           <span>{appConfig.fileSize}</span>
         </>
       )}
-      {appConfig.sha256 && (
-        <>
-          <span className="text-teal-500/60">•</span>
-          <button
-            type="button"
-            onClick={handleCopySha}
-            title={`Salin SHA-256: ${appConfig.sha256}`}
-            className="inline-flex items-center gap-1 font-mono text-[10px] text-teal-300 hover:text-white bg-[#0A383A]/70 hover:bg-[#0E4B4E] px-2 py-0.5 rounded-md border border-teal-500/30 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#2DD4BF]"
-          >
-            {copiedSha ? (
-              <>
-                <Check className="w-3 h-3 text-[#2DD4BF]" />
-                <span className="text-[#2DD4BF] font-sans font-semibold">Tersalin!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-3 h-3 text-[#2DD4BF]" />
-                <span>SHA-256: {appConfig.sha256.slice(0, 8)}...</span>
-              </>
-            )}
-          </button>
-        </>
-      )}
     </div>
   );
 
-  // Jika URL APK sudah dikonfigurasi, gunakan tautan unduhan langsung
+  // Jika terdapat handler modal (panel konfirmasi), selalu gunakan tombol pemicu modal
+  const hasModalHandler = Boolean(onOpenModal || onOpenUnavailableModal);
+
+  if (hasModalHandler) {
+    return (
+      <div className={wrapperStyles}>
+        <button
+          id={id}
+          type="button"
+          onClick={handleOpenConfirm}
+          className={`${baseStyles} ${sizeStyles} ${variantStyles} w-full sm:w-auto ${className}`}
+          aria-haspopup="dialog"
+          aria-label={`Unduh file instalasi APK ${appConfig.name} untuk Android`}
+        >
+          {buttonContent}
+        </button>
+
+        {metadataContent}
+      </div>
+    );
+  }
+
+  // Fallback jika tidak ada handler modal dan URL tersedia: unduh langsung
   if (isUrlAvailable) {
     return (
       <div className={wrapperStyles}>
@@ -133,20 +133,13 @@ export default function DownloadButton({
     );
   }
 
-  // Jika URL APK belum diatur, tampilkan tombol pemicu modal "Installer segera tersedia"
   return (
     <div className={wrapperStyles}>
       <button
         id={id}
         type="button"
-        onClick={() => {
-          if (onOpenUnavailableModal) {
-            onOpenUnavailableModal();
-          }
-        }}
-        className={`${baseStyles} ${sizeStyles} ${variantStyles} w-full sm:w-auto ${className}`}
-        aria-haspopup="dialog"
-        aria-label={`Informasi berkas unduhan APK ${appConfig.name} untuk Android`}
+        disabled
+        className={`${baseStyles} ${sizeStyles} ${variantStyles} opacity-60 cursor-not-allowed w-full sm:w-auto ${className}`}
       >
         {buttonContent}
       </button>

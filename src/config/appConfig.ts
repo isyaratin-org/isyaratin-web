@@ -54,7 +54,7 @@ export const appConfig = {
   contact: {
     email: "kontak@isyaratin.com",
     supportText: "Kirim masukan atau pertanyaan kepada tim pengembang Isyaratin.",
-    repoUrl: "https://github.com/isyaratin-org/isyaratin",
+    repoUrl: "",
     communityNote: "Dikembangkan dengan semangat inklusivitas untuk penyandang tunarungu dan masyarakat Indonesia.",
   },
 
@@ -176,14 +176,7 @@ export const appConfig = {
         "Ya, sangat aman. Berkas APK yang kami sediakan di halaman resmi ini dijamin bebas dari malware atau iklan berbahaya. Peringatan sistem yang muncul di Android merupakan proteksi standar terhadap berkas yang diunduh dari peramban web.",
       highlight: "Selalu pastikan Anda mengunduh dari domain resmi Isyaratin.",
     },
-    {
-      id: "faq-verifikasi-sha256",
-      question: "Bagaimana cara memverifikasi keaslian dan integritas berkas APK (SHA-256)?",
-      answer:
-        "Anda dapat memeriksa nilai hash SHA-256 berkas APK setelah diunduh untuk memastikan berkas asli dan tidak rusak. Nilai resmi SHA-256 rilis ini adalah:\ndec4ff11ac0a06a6c912507641af904105ae5a2f7ac814f4768e9d825f02e811\n\nCara verifikasi:\n• Di Windows (PowerShell): Get-FileHash app-release.apk -Algorithm SHA256\n• Di Linux/macOS (Terminal): sha256sum app-release.apk",
-      highlight:
-        "Verifikasi SHA-256 menjamin berkas yang Anda pasang 100% otentik dan aman dari rilis resmi Isyaratin.",
-    },
+
     {
       id: "faq-belum-tersedia",
       question: "Mengapa tombol unduh menampilkan pesan bahwa installer segera tersedia?",
