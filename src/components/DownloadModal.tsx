@@ -6,8 +6,6 @@ import {
   Download,
   ShieldCheck,
   Smartphone,
-  Copy,
-  Check,
   FileCode2,
   AlertCircle,
   Clock,
@@ -23,7 +21,6 @@ interface DownloadModalProps {
 
 export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
-  const [copiedSha, setCopiedSha] = useState(false);
   const [downloadStarted, setDownloadStarted] = useState(false);
 
   const isUrlAvailable = Boolean(
@@ -50,14 +47,6 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
-
-  const handleCopySha = () => {
-    if (appConfig.sha256) {
-      navigator.clipboard.writeText(appConfig.sha256);
-      setCopiedSha(true);
-      setTimeout(() => setCopiedSha(false), 2000);
-    }
-  };
 
   const handleDownloadClick = () => {
     setDownloadStarted(true);
@@ -175,38 +164,6 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
                   </div>
                 </div>
 
-                {/* Checksum SHA-256 Panel Verifikasi */}
-                {appConfig.sha256 && (
-                  <div className="bg-[#072427]/80 border border-teal-500/30 rounded-2xl p-3.5 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-teal-200 flex items-center gap-1.5">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#2DD4BF]" />
-                        Checksum SHA-256 (Integritas Berkas)
-                      </span>
-                      <button
-                        type="button"
-                        onClick={handleCopySha}
-                        title="Salin SHA-256"
-                        className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#2DD4BF] hover:text-[#9CE7E3] bg-[#0A383A]/70 hover:bg-[#0E4B4E] px-2 py-0.5 rounded-md border border-teal-500/30 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#2DD4BF]"
-                      >
-                        {copiedSha ? (
-                          <>
-                            <Check className="w-3 h-3 text-[#2DD4BF]" />
-                            <span>Tersalin!</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3 h-3" />
-                            <span>Salin</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                    <div className="p-2 rounded-xl bg-teal-950/80 border border-teal-500/20 text-[10px] font-mono text-teal-200/90 break-all select-all leading-relaxed">
-                      {appConfig.sha256}
-                    </div>
-                  </div>
-                )}
 
                 {/* Tips Instalasi Singkat */}
                 <div className="text-xs text-teal-200/85 bg-teal-950/60 border border-teal-500/25 rounded-xl p-3 flex gap-2.5 items-start">
