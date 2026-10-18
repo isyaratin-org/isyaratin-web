@@ -53,13 +53,16 @@ Proyek ini menggunakan satu sumber URL resmi untuk pengunduhan berkas APK.
 2. Buka berkas `.env.local` dan atur nilai variabel berikut:
    ```env
    # Masukkan URL tautan unduhan langsung berkas installer APK Isyaratin
-   NEXT_PUBLIC_APK_DOWNLOAD_URL="https://example.com/downloads/isyaratin-release.apk"
+   NEXT_PUBLIC_APK_DOWNLOAD_URL="https://github.com/isyaratin-org/isyaratin/releases/download/v1.0/app-release.apk"
 
-   # (Opsional) Versi aplikasi - kosongkan jika belum ingin ditampilkan
-   NEXT_PUBLIC_APP_VERSION="1.0.0-beta"
+   # (Opsional) Versi rilis aplikasi
+   NEXT_PUBLIC_APP_VERSION="v1.0"
 
-   # (Opsional) Estimasi ukuran berkas APK - kosongkan jika belum ingin ditampilkan
-   NEXT_PUBLIC_APP_FILE_SIZE="18.5 MB"
+   # (Opsional) Estimasi ukuran berkas APK
+   NEXT_PUBLIC_APP_FILE_SIZE="173 MB"
+
+   # (Opsional) Checksum SHA-256 untuk verifikasi integritas APK
+   NEXT_PUBLIC_APP_SHA256="dec4ff11ac0a06a6c912507641af904105ae5a2f7ac814f4768e9d825f02e811"
    ```
 
 3. Jika `NEXT_PUBLIC_APK_DOWNLOAD_URL` dikosongkan (`""`), antarmuka secara otomatis menampilkan pesan informatif bahwa berkas sedang disiapkan saat pengguna menekan tombol **"Download APK"**.

@@ -1,13 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, Check, Copy } from "lucide-react";
 import { appConfig } from "@/config/appConfig";
 import HandshakeLogo from "./HandshakeLogo";
 
 export default function Footer() {
   const currentYear = 2026;
+  const [copiedSha, setCopiedSha] = useState(false);
+
+  const handleCopySha = () => {
+    if (appConfig.sha256) {
+      navigator.clipboard.writeText(appConfig.sha256);
+      setCopiedSha(true);
+      setTimeout(() => setCopiedSha(false), 2000);
+    }
+  };
 
   return (
     <footer className="bg-[#041618] text-teal-100/90 pt-16 pb-12 border-t border-teal-500/20 relative overflow-hidden z-10">
@@ -67,6 +76,34 @@ export default function Footer() {
               )}
               {appConfig.fileSize && (
                 <li>Ukuran: <span className="text-white font-semibold">{appConfig.fileSize}</span></li>
+              )}
+              {appConfig.sha256 && (
+                <li className="pt-2">
+                  <div className="flex items-center justify-between text-xs text-teal-300/90 mb-1">
+                    <span className="font-semibold text-white">SHA-256 Checksum:</span>
+                    <button
+                      type="button"
+                      onClick={handleCopySha}
+                      title="Salin SHA-256"
+                      className="inline-flex items-center gap-1 text-[11px] text-[#2DD4BF] hover:text-[#9CE7E3] transition-colors focus-visible:outline-none"
+                    >
+                      {copiedSha ? (
+                        <>
+                          <Check className="w-3 h-3" />
+                          <span>Tersalin</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3 h-3" />
+                          <span>Salin</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  <div className="p-2 rounded-xl bg-teal-950/70 border border-teal-500/25 text-[10px] font-mono text-teal-200/90 break-all select-all leading-relaxed">
+                    {appConfig.sha256}
+                  </div>
+                </li>
               )}
             </ul>
           </div>
