@@ -38,7 +38,7 @@ export const appConfig = {
   // Konfigurasi installer APK
   apkDownloadUrl:
     process.env.NEXT_PUBLIC_APK_DOWNLOAD_URL ||
-    "https://github.com/isyaratin-org/isyaratin/releases/download/v1.0/app-release.apk",
+    "https://pub-2406c94c4bb645119ede540ffe2a6ab7.r2.dev/app-release.apk",
 
   // Konfigurasi metadata unduhan (hanya tampil jika nilainya tidak kosong)
   version: process.env.NEXT_PUBLIC_APP_VERSION || "v1.0",

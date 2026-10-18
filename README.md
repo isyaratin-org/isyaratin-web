@@ -53,7 +53,7 @@ Proyek ini menggunakan satu sumber URL resmi untuk pengunduhan berkas APK.
 2. Buka berkas `.env.local` dan atur nilai variabel berikut:
    ```env
    # Masukkan URL tautan unduhan langsung berkas installer APK Isyaratin
-   NEXT_PUBLIC_APK_DOWNLOAD_URL="https://github.com/isyaratin-org/isyaratin/releases/download/v1.0/app-release.apk"
+   NEXT_PUBLIC_APK_DOWNLOAD_URL="https://pub-2406c94c4bb645119ede540ffe2a6ab7.r2.dev/app-release.apk"
 
    # (Opsional) Versi rilis aplikasi
    NEXT_PUBLIC_APP_VERSION="v1.0"
