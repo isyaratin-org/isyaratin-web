@@ -22,7 +22,7 @@ export default function Requirements() {
   };
 
   return (
-    <section id="prasyarat" className="py-24 relative overflow-hidden text-white">
+    <section id="prasyarat" className="py-24 relative overflow-hidden text-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div

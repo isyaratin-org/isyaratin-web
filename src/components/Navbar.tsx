@@ -10,15 +10,21 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {
   onOpenUnavailableModal: () => void;
+  onOpenDownloadModal?: () => void;
 }
 
-export default function Navbar({ onOpenUnavailableModal }: NavbarProps) {
+export default function Navbar({
+  onOpenUnavailableModal,
+  onOpenDownloadModal,
+}: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleOpenModal = onOpenDownloadModal || onOpenUnavailableModal;
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -28,17 +34,17 @@ export default function Navbar({ onOpenUnavailableModal }: NavbarProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#061D20]/80 backdrop-blur-xl border-b border-teal-500/20 py-3 shadow-xl shadow-black/30"
+        isScrolled || mobileMenuOpen
+          ? "bg-[#061D20]/90 backdrop-blur-xl border-b border-teal-500/20 py-3 shadow-xl shadow-black/40"
           : "bg-transparent py-4 sm:py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="relative flex items-center justify-between">
           {/* Brand Logo & Name */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF] rounded-xl p-1"
+            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF] rounded-xl p-1 z-10"
             aria-label={`${appConfig.name} - Beranda`}
           >
             <div className="relative">
@@ -50,25 +56,25 @@ export default function Navbar({ onOpenUnavailableModal }: NavbarProps) {
             </div>
 
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-wider text-white group-hover:text-[#9CE7E3] transition-colors">
+              <span className="font-extrabold text-xl tracking-wider text-white group-hover:text-[#9CE7E3] transition-colors leading-none">
                 {appConfig.name}
               </span>
-              <span className="text-[10px] font-medium -mt-1 text-teal-300/80 hidden sm:inline tracking-wider">
+              <span className="text-[10px] font-medium text-teal-300/80 hidden sm:inline tracking-wider mt-1">
                 {appConfig.tagline}
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links - Perfectly Centered */}
           <nav
             aria-label="Navigasi Utama"
-            className="hidden md:flex items-center gap-1 lg:gap-2 p-1.5 rounded-full shadow-lg backdrop-blur-xl bg-[#0A2F33]/60 border border-teal-500/25"
+            className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 lg:gap-2 p-1.5 rounded-full shadow-lg backdrop-blur-xl bg-[#0A2F33]/80 border border-teal-500/25"
           >
             {appConfig.navigation.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="relative px-4 py-1.5 text-sm font-semibold rounded-full text-teal-100 hover:text-white transition-all duration-200 hover:bg-[#145C60]/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF]"
+                className="relative px-3.5 py-1.5 text-xs lg:text-sm font-semibold rounded-full text-teal-100 hover:text-white transition-all duration-200 hover:bg-[#145C60]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF]"
               >
                 {item.label}
               </a>
@@ -76,17 +82,18 @@ export default function Navbar({ onOpenUnavailableModal }: NavbarProps) {
           </nav>
 
           {/* Desktop CTA Button */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3 z-10">
             <DownloadButton
               variant="header"
               size="sm"
-              onOpenUnavailableModal={onOpenUnavailableModal}
+              onOpenModal={handleOpenModal}
+              onOpenUnavailableModal={handleOpenModal}
               id="navbar-download-button"
             />
           </div>
 
           {/* Mobile Hamburger Button */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 md:hidden z-10">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -110,37 +117,43 @@ export default function Navbar({ onOpenUnavailableModal }: NavbarProps) {
         {mobileMenuOpen && (
           <motion.div
             id="mobile-navigation"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden bg-[#061D20]/95 backdrop-blur-2xl border-b border-teal-500/30 px-5 pt-4 pb-6 shadow-2xl max-h-[calc(100vh-5rem)] overflow-y-auto"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.22, ease: "easeInOut" }}
+            className="md:hidden overflow-hidden bg-[#061D20]/95 backdrop-blur-2xl border-b border-teal-500/30 shadow-2xl"
           >
-            <nav className="flex flex-col space-y-2 mb-5">
-              {appConfig.navigation.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-2.5 rounded-xl text-base font-semibold text-teal-100 hover:text-white hover:bg-[#0E4B4E]/60 border border-transparent hover:border-teal-500/30 transition-all"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
+            <div className="px-5 pt-3 pb-6 space-y-4">
+              <nav className="flex flex-col space-y-1">
+                {appConfig.navigation.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-2.5 rounded-xl text-sm font-semibold text-teal-100 hover:text-white hover:bg-[#0E4B4E]/60 border border-transparent hover:border-teal-500/30 transition-all"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
 
-            <div className="pt-3 border-t border-teal-800/60 flex flex-col gap-2">
-              <DownloadButton
-                variant="primary"
-                size="md"
-                showMeta={true}
-                className="w-full text-center"
-                onOpenUnavailableModal={() => {
-                  setMobileMenuOpen(false);
-                  onOpenUnavailableModal();
-                }}
-                id="mobile-navbar-download-button"
-              />
+              <div className="pt-3 border-t border-teal-800/60">
+                <DownloadButton
+                  variant="primary"
+                  size="md"
+                  showMeta={true}
+                  className="w-full text-center"
+                  onOpenModal={() => {
+                    setMobileMenuOpen(false);
+                    handleOpenModal();
+                  }}
+                  onOpenUnavailableModal={() => {
+                    setMobileMenuOpen(false);
+                    handleOpenModal();
+                  }}
+                  id="mobile-navbar-download-button"
+                />
+              </div>
             </div>
           </motion.div>
         )}

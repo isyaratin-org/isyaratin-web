@@ -25,7 +25,7 @@ export default function Features() {
     <section
       id="fitur"
       aria-label="Fitur Unggulan Isyaratin"
-      className="py-24 relative overflow-hidden text-white"
+      className="py-24 relative overflow-hidden text-white scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

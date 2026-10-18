@@ -61,16 +61,32 @@ export default async function Image() {
 
         {/* Brand & Main Title */}
         <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "980px" }}>
-          <div
-            style={{
-              fontSize: "68px",
-              fontWeight: 900,
-              letterSpacing: "0.05em",
-              color: "#9CE7E3",
-              lineHeight: 1,
-            }}
-          >
-            ISYARATIN
+          <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+            <svg
+              width="68"
+              height="68"
+              viewBox="0 0 200 200"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="4" y="4" width="192" height="192" rx="46" fill="#093235" stroke="#2DD4BF" strokeWidth="6" />
+              <path d="M68 62 H92 C104 58 118 61 133 59 L137 102" stroke="#FFFFFF" strokeWidth="10" />
+              <path d="M68 62 L64 101 L93 126" stroke="#FFFFFF" strokeWidth="10" />
+              <path d="M92 62 C82 72 78 83 82 91 C85 97 93 98 98 92 C104 84 114 84 128 98" stroke="#FFFFFF" strokeWidth="10" />
+              <path d="M93 126 C100 132 108 128 110 120 C114 125 122 122 125 113 C128 117 136 112 136 102" stroke="#FFFFFF" strokeWidth="10" />
+            </svg>
+            <div
+              style={{
+                fontSize: "68px",
+                fontWeight: 900,
+                letterSpacing: "0.05em",
+                color: "#9CE7E3",
+                lineHeight: 1,
+              }}
+            >
+              ISYARATIN
+            </div>
           </div>
           <div
             style={{
